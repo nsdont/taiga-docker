@@ -1,0 +1,21 @@
+front:
+    image: nsdont/taiga-front
+    links:
+        - backend
+    ports:
+        - "8000:8000"
+
+backend:
+    image: nsdont/taiga-back
+    links:
+        - db
+    ports:
+        - "8001:8001"
+
+db:
+    image: postgres
+    environment:
+        POSTGRES_PASSWORD: taiga
+        POSTGRES_USER: taiga
+    volumes:
+        - postgresql:/var/lib/postgresql
