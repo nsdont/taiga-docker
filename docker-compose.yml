@@ -1,5 +1,5 @@
 web:
-    build:  nsdont/taiga-docker
+    image:  nsdont/taiga-docker
     links:
         - db
     volumes:
