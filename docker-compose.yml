@@ -1,9 +1,12 @@
 web:
     image:  nsdont/taiga-docker
+    command: circusd /taiga/circus/circus.ini
     links:
         - db
     volumes:
         - backend/settings/local.py:/taiga/backend/settings/local.py
+        - front/dist/js/conf.json:/taiga/front/dist/js/conf.json
+        - circus:/taiga/circus
 
 db:
     image: postgres:9.3

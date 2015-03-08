@@ -42,8 +42,6 @@ RUN pip install -r /taiga/backend/requirements.txt
 RUN python manage.py collectstatic --noinput
 
 RUN (echo "alias ll='ls -atrhlF'" >> ~/.bashrc)
-ADD circus/circus.conf /etc/init/circus.conf
-ADD circus/circus.ini /taiga/circus.ini
 
 VOLUME ["/logs", "/taiga"]
 
