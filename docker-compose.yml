@@ -1,21 +1,14 @@
-front:
-    image: nsdont/taiga-front
-    links:
-        - backend
-    ports:
-        - "8000:8000"
-
-backend:
-    image: nsdont/taiga-back
+web:
+    build:  nsdont/taiga-docker
     links:
         - db
-    ports:
-        - "8001:8001"
+    volumes:
+        - backend/settings/local.py:/taiga/backend/settings/local.py
 
 db:
-    image: postgres
+    image: postgres:9.3
     environment:
         POSTGRES_PASSWORD: taiga
         POSTGRES_USER: taiga
     volumes:
-        - postgresql:/var/lib/postgresql
+        - postgres_data:/var/lib/postgresql/data
