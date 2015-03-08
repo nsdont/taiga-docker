@@ -7,6 +7,7 @@ web:
         - backend/settings/local.py:/taiga/backend/settings/local.py
         - front/dist/js/conf.json:/taiga/front/dist/js/conf.json
         - circus:/taiga/circus
+        - logs:/taiga/logs
 
 db:
     image: postgres:9.3

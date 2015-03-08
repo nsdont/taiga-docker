@@ -43,7 +43,7 @@ RUN python manage.py collectstatic --noinput
 
 RUN (echo "alias ll='ls -atrhlF'" >> ~/.bashrc)
 
-VOLUME ["/logs", "/taiga"]
+VOLUME ["/taiga"]
 
 EXPOSE 8001
 
