@@ -41,6 +41,13 @@ RUN git checkout stable
 RUN pip install -r /taiga/backend/requirements.txt
 RUN python manage.py collectstatic --noinput
 
+# install taiga events
+WORKDIR /taiga
+RUN git clone https://github.com/taigaio/taiga-events.git events
+WORKDIR /taiga/events
+RUN git checkout stable
+RUN pip install -r /taiga/backend/requirements.txt
+
 RUN (echo "alias ll='ls -atrhlF'" >> ~/.bashrc)
 
 VOLUME ["/taiga"]

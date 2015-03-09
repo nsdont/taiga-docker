@@ -1,2 +1,4 @@
 front/dist/js/conf.json
 backend/settings/local.py
+logs
+postgres_data

@@ -6,6 +6,7 @@ web:
     volumes:
         - backend/settings/local.py:/taiga/backend/settings/local.py
         - front/dist/js/conf.json:/taiga/front/dist/js/conf.json
+        - events/conf.py:/taiga/events/conf.py
         - circus:/taiga/circus
         - logs:/taiga/logs
 
